@@ -1,0 +1,7 @@
+# dsh-browser-toggle bundle patch: one insert adding the host row. The client
+# half joins the browser graph automatically because package.json declares
+# dsh.client and exports "./client". Single-entry package: dsh-client-modules
+# requires exactly one active loader source per client-declaring package.
+- insert:
+    - id: browser-toggle
+      name: dsh-browser-toggle

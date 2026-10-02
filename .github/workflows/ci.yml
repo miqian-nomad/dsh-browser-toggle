@@ -1,0 +1,39 @@
+# The test needs no install and no browser: lib/gates-patch.js uses node builtins
+# only, so this workflow is deliberately tiny and cannot rot.
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: test (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+
+      - name: Managed-block writer test
+        run: npm test
+
+      - name: Every module parses
+        shell: bash
+        run: |
+          for f in lib/*.js tests/*.mjs; do
+            node --check "$f"
+          done

@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Browser Toggle",
+    "description": "Settings card for dsh-browser-playwright-codex: enable or disable the browser capability without restarting DSH, pick the page-reading mode, and choose whether the two power tools (arbitrary page JS, raw CDP) are registered at all."
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "name": "dsh-browser-toggle",
+  "version": "0.2.0",
+  "description": "Settings card for dsh-browser-playwright-codex: enable/disable the browser capability, pick the page-reading mode, and choose whether browser_evaluate / browser_cdp are registered at all. Split into its own single-entry package because dsh-client-modules rejects a package mounted from multiple loader entries.",
+  "type": "module",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/miqian-nomad/dsh-browser-toggle.git"
+  },
+  "homepage": "https://github.com/miqian-nomad/dsh-browser-toggle#readme",
+  "bugs": {
+    "url": "https://github.com/miqian-nomad/dsh-browser-toggle/issues"
+  },
+  "scripts": {
+    "test": "node tests/gates-patch.test.mjs"
+  },
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "cordis",
+    "browser",
+    "toggle",
+    "settings"
+  ],
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json",
+    "./locale/*.json": "./locale/*.json"
+  },
+  "files": [
+    "lib",
+    "cordis.patch.yml",
+    "locale"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": []
+    }
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
