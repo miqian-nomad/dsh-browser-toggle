@@ -1,6 +1,6 @@
 {
   "name": "dsh-browser-toggle",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Settings card for dsh-browser-playwright-codex: enable/disable the browser capability, pick the page-reading mode, and choose whether browser_evaluate / browser_cdp are registered at all. Split into its own single-entry package because dsh-client-modules rejects a package mounted from multiple loader entries.",
   "type": "module",
   "license": "MIT",
