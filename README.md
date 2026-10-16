@@ -133,6 +133,6 @@ Privacy boundaries, deliberately: the payload carries domain names, counts and s
 **no cookie names and no cookie values**; it lives in memory only (never on disk); the model cannot
 read it (no tool, nothing in diagnostics); and the only route that serves it,
 `GET /api/browser-playwright/logins`, **requires the `x-dsh-plugin` custom header**, so any other
-page in the browser cannot read it off 127.0.0.1. Domains owned by the same company collapse into one row (for example 京东系（18 个域）) with the family's
+page in the browser cannot read it off 127.0.0.1. Each row says **what the site is** — the curated offline table first, then the page's own title, then the bare domain (never a guess). Domains owned by the same company collapse into one row (for example 京东系（18 个域）) with the family's
 totals, expandable to the individual domains. Hiding a row is a display preference kept in this
 browser's `localStorage` — there is no server-side record of what you hid.
