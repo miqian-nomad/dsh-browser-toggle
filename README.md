@@ -121,3 +121,17 @@ failed self-check restores the previous bytes. CI runs it on Linux and Windows.
 ## License
 
 MIT — see [LICENSE](LICENSE).
+
+## Logged-in sites (read-only)
+
+The card lists the sites this browser **looks** signed in to — an inference from the browser's own
+cookies, aggregated per registrable domain (analytics and consent cookies are dropped first, so a
+site you merely visited does not show up), scored on httpOnly / lifetime / session-like names and
+labelled "推测登录" rather than presented as fact.
+
+Privacy boundaries, deliberately: the payload carries domain names, counts and signal labels —
+**no cookie names and no cookie values**; it lives in memory only (never on disk); the model cannot
+read it (no tool, nothing in diagnostics); and the only route that serves it,
+`GET /api/browser-playwright/logins`, **requires the `x-dsh-plugin` custom header**, so any other
+page in the browser cannot read it off 127.0.0.1. Hiding a row is a display preference kept in this
+browser's `localStorage` — there is no server-side record of what you hid.

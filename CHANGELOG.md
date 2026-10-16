@@ -1,5 +1,14 @@
 # Changelog
 
+## Unreleased
+
+- 卡片新增一节**只读**的「已登录的站点」：从主插件发布的 cookie 推断（域名 + 条数 + 信号，**没有 cookie
+  名与值**），可逐行隐藏（偏好存本机 localStorage）。
+- 新增 `GET /api/browser-playwright/logins`，**强制 `x-dsh-plugin` 防伪头**（不带即 403）——这份 payload
+  是用户的登录站点名单，不该能被浏览器里别的页面读走。
+- **补掉 `GET /api/browser-playwright/state` 不校验防伪头的缺口**（四个路由里唯一一个），客户端读写都带头。
+- 新增 `tests/logins-route.test.mjs`（4 条：403 / 正常回传 / 405 / /state 也要求头）。
+
 ## 0.2.0
 
 ### Added
