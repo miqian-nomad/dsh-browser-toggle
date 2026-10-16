@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+- 卡片「已登录的站点」按主插件的新判据改写：默认**只显示像登录态的**（可展开其余），统计行写明
+  "你在 DSH 里访问过 N 个域，其中 M 个像登录态；另有 K 个第三方域已排除"，每行给出可核对的证据
+  （cookie 数 / httpOnly / 会话 / 值像令牌），说明文字讲清第一方归属与 OWASP 判据。
+
+
 - 卡片新增一节**只读**的「已登录的站点」：从主插件发布的 cookie 推断（域名 + 条数 + 信号，**没有 cookie
   名与值**），可逐行隐藏（偏好存本机 localStorage）。
 - 新增 `GET /api/browser-playwright/logins`，**强制 `x-dsh-plugin` 防伪头**（不带即 403）——这份 payload
