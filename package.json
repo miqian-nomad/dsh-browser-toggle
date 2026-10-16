@@ -13,7 +13,7 @@
     "url": "https://github.com/miqian-nomad/dsh-browser-toggle/issues"
   },
   "scripts": {
-    "test": "node tests/gates-patch.test.mjs"
+    "test": "node --test \"tests/**/*.test.mjs\""
   },
   "keywords": [
     "deepseek-harness",
